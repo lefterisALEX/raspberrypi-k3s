@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speedtest-deployment
+  labels:
+    app: speedtestcli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: speedtest
+  template:
+    metadata:
+      labels:
+        app: speedtest
+    spec:
+      containers:
+      - name: speedtest
+        image: quadstingray/speedtest-influxdb
+        env:
+        - name: HOST
+          value: "local"
+        - name: INTERVAL
+          value: "60"
+        - name: INFLUXDB_USE
+          value: "true"
+        - name: INFLUXDB_URL
+          value: "http://<your_IP>:8086"
+        - name: INFLUXDB_DB
+          value: "true"
+
+
+
