@@ -14,20 +14,10 @@ spec:
       labels:
         app: speedtest
     spec:
+      hostNetwork: true
       containers:
       - name: speedtest
-        image: quadstingray/speedtest-influxdb
+        image: lalx/speedtest-cli
         env:
-        - name: HOST
-          value: "local"
-        - name: INTERVAL
-          value: "60"
-        - name: INFLUXDB_USE
-          value: "true"
-        - name: INFLUXDB_URL
-          value: "http://<your_IP>:8086"
-        - name: INFLUXDB_DB
-          value: "true"
-
-
-
+        - name: HOST_HOSTNAME
+          value: hostname
