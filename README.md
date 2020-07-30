@@ -1,4 +1,4 @@
-##installation steps
+# installation steps
 
 ```
 sudo apt-get update
